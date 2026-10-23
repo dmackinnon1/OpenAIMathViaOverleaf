@@ -63,5 +63,16 @@ def add(m):
 text = link_re.sub(add, text)
 
 (site / "CONTENTS-overleaf.md").write_text(text, encoding="utf-8")
+(site / "index.html").write_text("""<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mathematics manuscripts: Open in Overleaf</title>
+<style>body{font:16px/1.5 system-ui,sans-serif;max-width:60rem;margin:0 auto;padding:1rem 16px}
+td{padding:.6rem 0;border-bottom:1px solid #ddd}table{border-collapse:collapse;width:100%}</style>
+</head><body><p><a href="CONTENTS-overleaf.md">Raw markdown</a> &middot; <a href="report.txt">Build report</a></p>
+<div id="c">Loading&hellip;</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script>fetch("CONTENTS-overleaf.md").then(r=>r.text()).then(t=>{document.getElementById("c").innerHTML=marked.parse(t)})</script>
+</body></html>
+""", encoding="utf-8")
 (site / "report.txt").write_text("\n".join(report) + "\n", encoding="utf-8")
 print("\n".join(report))
