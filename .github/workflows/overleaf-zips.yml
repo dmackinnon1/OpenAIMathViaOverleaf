@@ -1,12 +1,8 @@
 name: Build Overleaf zips
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
-  schedule:
-    - cron: "0 6 * * 1"   # weekly; pairs with an upstream sync if you add one
-
+  
 permissions:
   contents: read
   pages: write
