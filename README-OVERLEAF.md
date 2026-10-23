@@ -37,7 +37,7 @@ Overleaf downloads the zip from GitHub Pages and creates the project, using its 
 
 ## Details
 
-- **Triggers:** push to `main`, manual run (Actions tab), and weekly.
+- **Triggers:** manual run (Actions tab)
 - **Skipped files:** LaTeX build artefacts (`.aux`, `.log`, `.bbl`, and similar) and hidden or OS folders, mirroring Overleaf's own ignore pattern.
 - **Ambiguous main file:** if a build folder has several files containing `\documentclass`, the link adds `main_document=main.tex` when a root `main.tex` exists. Otherwise the build report shows a `WARN` line. A few papers fall into this group; check `report.txt` (`NOTE` and `WARN` lines).
 - **Papers without a build folder:** `report.txt` lists them (`MISS`). They get no Overleaf link.
